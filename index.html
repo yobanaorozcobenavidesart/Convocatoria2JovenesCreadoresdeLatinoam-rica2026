@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Convocatoria Jóvenes Creadores de Latinoamérica · Edición 2</title>
   <style>
+    /* ========== ESTILOS PREVIOS (SE MANTIENEN IGUALES) ========== */
     * {
       margin: 0;
       padding: 0;
@@ -211,6 +212,43 @@
       border: 1px solid #222;
     }
 
+    /* Tarjeta especial para primera edición con imagen y texto en fila */
+    .card-edicion {
+      background: #0a0a0a;
+      padding: 16px 20px;
+      margin: 16px 0;
+      border: 1px solid #222;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card-edicion .edicion-info {
+      flex: 2;
+      min-width: 180px;
+    }
+
+    .card-edicion .edicion-imagen {
+      flex: 0 0 100px;
+      text-align: center;
+    }
+
+    .card-edicion .edicion-imagen img {
+      width: 100%;
+      max-width: 100px;
+      height: auto;
+      border-radius: 4px;
+      border: 1px solid #444;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card-edicion .edicion-imagen img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 0 8px rgba(184, 134, 11, 0.5);
+      border-color: #b8860b;
+    }
+
     /* Tabla cronograma */
     .tabla-cronograma {
       width: 100%;
@@ -409,6 +447,16 @@
       .card, .categoria-card {
         padding: 12px 16px;
       }
+      .card-edicion {
+        flex-direction: column;
+        text-align: center;
+        padding: 16px;
+      }
+      .card-edicion .edicion-imagen {
+        flex-basis: auto;
+        order: -1;
+        margin-bottom: 8px;
+      }
       .titulo-seccion {
         font-size: 1rem;
         margin: 16px 0 10px;
@@ -552,7 +600,7 @@
         <tr><td id="fase-seleccion">Selección y curaduría</td><td>17 abr – 9 may</td> </tr>
         <tr><td id="fase-publicacion">Publicación digital</td><td>16 may</td> </tr>
       </tbody>
-    </table>
+     </table>
   </div>
 
   <div class="card text-center">
@@ -561,7 +609,6 @@
     <p id="recomendacion-politicas" style="margin: 10px 0 16px; font-size: 0.8rem;">
       Antes de enviar, lee las <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Políticas Editoriales</a>.
     </p>
-    <!-- Botón formulario 3D con neón -->
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdv0sPv_VcwNs3cpRYWXNHzm1uWSencfYkaT-2uR93JtK42YA/viewform?usp=dialog" target="_blank" class="boton-3d" id="texto-formulario-inscripcion">
       📝 Formulario de inscripción
     </a>
@@ -577,7 +624,6 @@
     </ul>
     <p style="margin-top: 16px; font-size: 0.85rem;">
       <strong id="texto-documento-derechos">Documento de autorización (menores de edad):</strong><br>
-      <!-- Botón descarga 3D con neón -->
       <a href="https://drive.google.com/file/d/1fBxBltUf75eriVR5c_nVg2PSrkF6sdc8/view?usp=sharing" target="_blank" class="boton-3d" id="texto-descargar-derechos" style="margin-top: 10px; display: inline-block;">
         📄 Descargar documento
       </a>
@@ -590,6 +636,26 @@
     <p id="aviso-texto2"><strong>Resúmenes:</strong> mínimo 70 y máximo 100 palabras (español, inglés, portugués).</p>
     <p id="aviso-texto3">Palabras clave en los tres idiomas. Documento de autorización firmado (PDF) obligatorio.</p>
   </div>
+
+  <!-- ========== PRIMERA EDICIÓN MOVIDA AL FINAL (ANTES DEL LOGO) ========== -->
+  <div class="card-edicion" id="card-primera-edicion">
+    <div class="edicion-info">
+      <h2 class="titulo-seccion" id="titulo-primera-edicion" style="margin-top: 0;">Primera edición</h2>
+      <p id="descripcion-primera-edicion" style="font-size: 0.85rem; margin-bottom: 12px;">
+        Revista <strong>Jóvenes Creadores de Latinoamérica</strong> · Vol. 1, Nº 1<br>
+        Un espacio pionero que integra artes plásticas, literatura y fotografía.
+      </p>
+      <a href="https://heyzine.com/flip-book/171510b58c.html" target="_blank" rel="noopener noreferrer" class="boton-3d" id="boton-primera-edicion" style="padding: 6px 20px; font-size: 0.8rem;">
+        📖 Ver revista digital
+      </a>
+    </div>
+    <div class="edicion-imagen">
+      <a href="https://heyzine.com/flip-book/171510b58c.html" target="_blank" rel="noopener noreferrer">
+        <img src="https://i.postimg.cc/Vvjdw2bG/Cover.jpg" alt="Portada Revista Jóvenes Creadores - Edición 1" id="img-primera-edicion">
+      </a>
+    </div>
+  </div>
+  <!-- ========== FIN PRIMERA EDICIÓN ========== -->
 
   <div class="text-center mt-3">
     <img src="https://i.postimg.cc/05Y01Y0G/Proyecto-nuevo-rj-(4).jpg"
@@ -605,6 +671,7 @@
 </div>
 
 <script>
+// ========== TRADUCCIONES CON LA NUEVA SECCIÓN ==========
 const translations = {
   es: {
     'texto-boton-atras': '← Atrás',
@@ -660,7 +727,11 @@ const translations = {
     'derecho4': 'Documento de autorización firmado (PDF) obligatorio',
     'texto-documento-derechos': 'Documento de autorización (menores de edad):',
     'texto-descargar-derechos': '📄 Descargar documento',
-    'texto-boton-volver': ' Volver al inicio'
+    'texto-boton-volver': '🏠 Volver al inicio',
+    'titulo-primera-edicion': 'Primera edición',
+    'descripcion-primera-edicion': 'Revista <strong>Jóvenes Creadores de Latinoamérica</strong> · Vol. 1, Nº 1<br>Un espacio pionero que integra artes plásticas, literatura y fotografía.',
+    'boton-primera-edicion': '📖 Ver revista digital',
+    'img-primera-edicion': 'Portada Revista Jóvenes Creadores - Edición 1'
   },
   en: {
     'texto-boton-atras': '← Back',
@@ -716,7 +787,11 @@ const translations = {
     'derecho4': 'Signed authorization document (PDF) required',
     'texto-documento-derechos': 'Authorization document (minors):',
     'texto-descargar-derechos': '📄 Download document',
-    'texto-boton-volver': ' Back to home'
+    'texto-boton-volver': '🏠 Back to home',
+    'titulo-primera-edicion': 'First edition',
+    'descripcion-primera-edicion': 'Magazine <strong>Young Creators of Latin America</strong> · Vol. 1, No. 1<br>A pioneering space that integrates visual arts, literature, and photography.',
+    'boton-primera-edicion': '📖 View digital magazine',
+    'img-primera-edicion': 'Cover Young Creators Magazine - Issue 1'
   },
   fr: {
     'texto-boton-atras': '← Retour',
@@ -772,7 +847,11 @@ const translations = {
     'derecho4': 'Document d\'autorisation signé (PDF) obligatoire',
     'texto-documento-derechos': 'Document d\'autorisation (mineurs):',
     'texto-descargar-derechos': '📄 Télécharger',
-    'texto-boton-volver': ' Retour'
+    'texto-boton-volver': '🏠 Retour',
+    'titulo-primera-edicion': 'Première édition',
+    'descripcion-primera-edicion': 'Revue <strong>Jeunes Créateurs d\'Amérique Latine</strong> · Vol. 1, Nº 1<br>Un espace pionnier qui intègre les arts plastiques, la littérature et la photographie.',
+    'boton-primera-edicion': '📖 Voir la revue numérique',
+    'img-primera-edicion': 'Couverture Revue Jeunes Créateurs - Édition 1'
   },
   pt: {
     'texto-boton-atras': '← Voltar',
@@ -828,7 +907,11 @@ const translations = {
     'derecho4': 'Documento de autorização assinado (PDF) obrigatório',
     'texto-documento-derechos': 'Documento de autorização (menores):',
     'texto-descargar-derechos': '📄 Baixar',
-    'texto-boton-volver': ' Voltar'
+    'texto-boton-volver': '🏠 Voltar',
+    'titulo-primera-edicion': 'Primeira edição',
+    'descripcion-primera-edicion': 'Revista <strong>Jovens Criadores da América Latina</strong> · Vol. 1, Nº 1<br>Um espaço pioneiro que integra artes plásticas, literatura e fotografia.',
+    'boton-primera-edicion': '📖 Ver revista digital',
+    'img-primera-edicion': 'Capa Revista Jovens Criadores - Edição 1'
   }
 };
 

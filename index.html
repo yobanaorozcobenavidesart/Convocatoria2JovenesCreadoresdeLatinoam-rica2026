@@ -2,14 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
   <title>Convocatoria Jóvenes Creadores de Latinoamérica · Edición 2</title>
-
-  <!-- Fuente moderna -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
-
   <style>
-    /* ---------- ESTILOS GENERALES ---------- */
     * {
       margin: 0;
       padding: 0;
@@ -17,266 +12,434 @@
     }
 
     body {
-      background-color: #0b0b0b;
-      color: #f0f0f0;
-      font-family: 'Times New Roman', serif;
-      line-height: 1.6;
+      background-color: #000000;
+      color: #ffffff;
+      font-family: 'Times New Roman', Georgia, serif;
+      line-height: 1.4;
+      font-size: 15px;
     }
 
-    /* ---------- BANDERAS (STICKY) ---------- */
+    /* Banderas */
     #flags {
-      background: #000;
-      border-bottom: 3px solid #b8860b;
-      padding: 12px 0;
+      background: #000000;
+      border-bottom: 1px solid #333;
+      padding: 8px 0;
       position: sticky;
       top: 0;
       z-index: 2000;
-      box-shadow: 0 4px 20px rgba(255, 215, 0, 0.3);
       width: 100%;
     }
 
     #flags-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 8px;
       justify-content: center;
       align-items: center;
-    }
-
-    #flags button {
-      background: transparent;
-      border: none;
-      cursor: pointer;
-      padding: 6px 12px;
-      border-radius: 30px;
-      transition: all 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-width: 75px;
-    }
-
-    #flags button:hover {
-      background: rgba(255, 215, 0, 0.15);
-      transform: translateY(-3px);
-    }
-
-    #flags button.active {
-      background: rgba(184, 134, 11, 0.3);
-      box-shadow: 0 0 15px #ffd966;
-    }
-
-    #flags .flag-label {
-      color: white;
-      font-size: 11px;
-      margin-top: 5px;
-      font-weight: bold;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    #flags img {
-      width: 38px;
-      height: 28px;
-      border-radius: 6px;
-      border: 2px solid #444;
-      transition: 0.2s;
-    }
-
-    #flags button:hover img {
-      border-color: #ffd966;
-    }
-
-    #flags button.active img {
-      border-color: #ffd966;
-      box-shadow: 0 0 12px gold;
-    }
-
-    /* ---------- CONTENEDOR PRINCIPAL ---------- */
-    .contenedor-convocatoria {
-      max-width: 1100px;
-      margin: 20px auto 40px;
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 0 20px;
     }
 
-    /* BOTÓN ATRÁS */
+    #flags button {
+      background: #1a1a1a;
+      border: none;
+      cursor: pointer;
+      padding: 5px 12px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Times New Roman', serif;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+
+    #flags button:hover {
+      background: #2a2a2a;
+      transform: translateY(-1px);
+    }
+
+    #flags button.active {
+      background: #b8860b;
+      color: #000;
+      box-shadow: 0 0 8px rgba(184, 134, 11, 0.8);
+    }
+
+    #flags button.active .flag-label {
+      color: #000;
+    }
+
+    #flags .flag-label {
+      color: #ffffff;
+      font-size: 11px;
+    }
+
+    #flags img {
+      width: 20px;
+      height: 15px;
+      border-radius: 2px;
+    }
+
+    /* Contenedor principal */
+    .contenedor-convocatoria {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 20px 40px;
+    }
+
+    /* Botón atrás - estilo 3D */
     .boton-atras-container {
       text-align: center;
-      margin: 20px 0 30px;
+      margin: 20px 0 20px;
     }
 
     .boton-atras {
-      background: #000;
-      color: #fff;
-      border: 2px solid #b8860b;
-      padding: 12px 30px;
-      border-radius: 40px;
-      font-weight: bold;
-      font-size: 16px;
+      background: #2a2a2a;
+      color: #ffffff;
+      border: none;
+      padding: 8px 24px;
+      font-size: 14px;
       cursor: pointer;
-      transition: 0.3s;
-      display: inline-block;
-      text-decoration: none;
-      font-family: Arial, sans-serif;
-      letter-spacing: 1px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-family: 'Times New Roman', serif;
+      font-weight: normal;
+      border-radius: 6px;
+      box-shadow: 0 4px 0 #0a0a0a, 0 2px 8px rgba(0,0,0,0.3);
+      transition: all 0.1s ease;
+    }
+
+    .boton-atras:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #0a0a0a;
     }
 
     .boton-atras:hover {
       background: #b8860b;
-      color: #000;
-      box-shadow: 0 0 25px #ffc107;
-      border-color: #fff;
+      color: #000000;
+      box-shadow: 0 4px 0 #5a3a05, 0 0 12px rgba(184, 134, 11, 0.8);
+      transform: translateY(-1px);
     }
 
-    /* IMAGEN PRINCIPAL */
+    /* Imagen principal */
     .img-principal {
       display: block;
-      margin: 20px auto;
+      margin: 15px auto;
       max-width: 100%;
-      width: 850px;
-      border-radius: 18px;
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.4);
-      border: 2px solid #b8860b;
+      width: 800px;
+      border-radius: 4px;
+      border: 1px solid #333;
     }
 
-    /* Títulos de sección tipo cartel */
+    /* Banner de fechas */
+    .fechas-banner {
+      border: 1px solid #333;
+      padding: 12px 16px;
+      text-align: center;
+      margin: 20px 0;
+      background: #0a0a0a;
+    }
+
+    .fechas-banner strong {
+      color: #ffffff;
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .fechas-banner .fecha-texto {
+      font-size: 0.9rem;
+      margin-top: 6px;
+      color: #cccccc;
+    }
+
+    /* Títulos de sección */
     .titulo-seccion {
-      background: #000;
-      padding: 12px 24px;
-      border-radius: 50px;
-      color: #ffd966;
-      font-size: 22px;
-      text-transform: uppercase;
-      box-shadow: 0 0 20px #b8860b;
+      font-family: 'Times New Roman', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #ffffff;
+      margin: 20px 0 12px 0;
+      padding-bottom: 4px;
+      border-bottom: 1px solid #333;
       display: inline-block;
-      margin: 40px 0 20px;
-      font-family: 'Orbitron', sans-serif;
-      font-weight: 700;
-      letter-spacing: 2px;
-      border: 1px solid #b8860b;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ISSN con enlace */
+    .issn {
+      text-align: center;
+      margin: 20px 0 15px;
+      padding: 10px;
+    }
+
+    .issn .issn-texto {
+      font-size: 1.5rem;
+      font-weight: 600;
+      font-family: 'Times New Roman', serif;
+      letter-spacing: 3px;
+    }
+
+    .issn .issn-texto a {
+      color: #ffffff;
+      text-decoration: none;
+      border-bottom: 1px dotted #666;
+      transition: all 0.2s;
+    }
+
+    .issn .issn-texto a:hover {
+      color: #b8860b;
+      border-bottom-color: #b8860b;
+      text-shadow: 0 0 4px rgba(184, 134, 11, 0.5);
+    }
+
+    .issn .issn-label {
+      font-size: 0.7rem;
+      color: #888;
+      letter-spacing: 1px;
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* Tarjetas compactas */
+    .card {
+      background: #0a0a0a;
+      padding: 16px 20px;
+      margin: 16px 0;
+      border: 1px solid #222;
     }
 
     /* Tabla cronograma */
     .tabla-cronograma {
       width: 100%;
       border-collapse: collapse;
-      margin: 25px 0;
-      box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
-      border-radius: 16px;
-      overflow: hidden;
+      margin: 12px 0;
     }
 
     .tabla-cronograma th,
     .tabla-cronograma td {
-      padding: 15px;
-      border: 1px solid #b8860b;
-      background-color: #111;
-      color: #fff;
-      text-align: center;
-      font-size: 16px;
+      padding: 8px 12px;
+      border-bottom: 1px solid #2a2a2a;
+      text-align: left;
+      font-family: 'Times New Roman', serif;
+      font-size: 0.9rem;
     }
 
-    .tabla-cronograma thead th {
-      background-color: #1a1a1a;
-      color: #ffd966;
-      font-weight: bold;
-      font-size: 18px;
+    .tabla-cronograma th {
+      background: #0a0a0a;
+      color: #ffffff;
+      font-weight: 600;
     }
 
-    /* Botón elegante */
-    .boton-elegante {
-      background: #000;
-      color: #ffd966;
-      border: 2px solid #b8860b;
-      padding: 12px 28px;
-      font-size: 18px;
-      font-weight: bold;
+    .tabla-cronograma td {
+      background: #050505;
+      color: #dddddd;
+    }
+
+    /* BOTONES 3D CON NEON AL HOVER */
+    .boton-3d {
+      background: #2a2a2a;
+      color: #ffffff;
+      border: none;
+      padding: 10px 28px;
+      font-size: 0.9rem;
       text-decoration: none;
-      border-radius: 50px;
-      transition: 0.3s;
-      display: inline-block;
-      box-shadow: 0 0 15px #b8860b;
-      margin: 15px 0;
-      font-family: Arial, sans-serif;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Times New Roman', serif;
+      font-weight: normal;
+      cursor: pointer;
+      border-radius: 8px;
+      box-shadow: 0 5px 0 #0f0f0f, 0 2px 10px rgba(0,0,0,0.3);
+      transition: all 0.08s linear;
+      letter-spacing: 0.5px;
     }
 
-    .boton-elegante:hover {
+    .boton-3d:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #0f0f0f;
+    }
+
+    .boton-3d:hover {
       background: #b8860b;
-      color: #000;
-      border-color: #fff;
-      box-shadow: 0 0 30px gold;
+      color: #000000;
+      box-shadow: 0 5px 0 #5a3a05, 0 0 18px rgba(184, 134, 11, 0.9), 0 0 8px rgba(255, 217, 102, 0.6);
+      transform: translateY(-1px);
+      text-shadow: 0 0 2px rgba(0,0,0,0.3);
     }
 
-    /* ISSN */
-    .issn {
-      text-align: center;
-      font-size: 24px;
-      font-weight: bold;
-      margin: 15px 0 10px;
-      color: #ffd966;
-      text-shadow: 0 0 15px gold;
-      letter-spacing: 4px;
-    }
-
-    /* listas */
+    /* Listas compactas */
     ul {
-      padding-left: 25px;
-      margin: 15px 0;
+      padding-left: 20px;
+      margin: 8px 0;
     }
 
     li {
-      margin-bottom: 8px;
+      margin-bottom: 4px;
+      line-height: 1.4;
+      font-size: 0.9rem;
     }
 
     hr {
-      border: 1px solid #b8860b;
-      margin: 30px 0;
-      box-shadow: 0 0 10px #b8860b;
+      border: none;
+      height: 1px;
+      background: #222;
+      margin: 20px 0;
     }
 
     a {
-      color: #ffd966;
+      color: #cccccc;
       text-decoration: none;
-      font-weight: bold;
+      border-bottom: 1px dotted #666;
     }
 
     a:hover {
-      text-decoration: underline;
-      color: #fff;
+      color: #b8860b;
+      border-bottom-color: #b8860b;
     }
 
-    /* Nota de requisitos */
-    .nota-requisitos {
-      background: #1a1a1a;
-      border-left: 8px solid #b8860b;
-      padding: 20px 25px;
-      border-radius: 30px;
-      margin: 30px 0 20px;
-      font-size: 1.1rem;
-      box-shadow: 0 0 15px #b8860b;
+    /* Nota requisitos */
+    .nota-requisitos-final {
+      background: #0a0a0a;
+      border-left: 2px solid #b8860b;
+      padding: 14px 18px;
+      margin: 24px 0 20px;
     }
 
-    .nota-requisitos p {
+    .nota-requisitos-final p {
+      margin-bottom: 6px;
+      font-size: 0.85rem;
+      line-height: 1.4;
+    }
+
+    .nota-requisitos-final strong {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    .nota-requisitos-final .titulo-nota {
+      font-size: 0.9rem;
       margin-bottom: 10px;
     }
 
-    .nota-requisitos strong {
-      color: #ffd966;
+    /* Grid categorías */
+    .categorias-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin: 12px 0;
+    }
+
+    .categoria-card {
+      background: #0a0a0a;
+      border: 1px solid #222;
+      padding: 16px;
+    }
+
+    .categoria-card h4 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      color: #ffffff;
+      font-weight: 600;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .categoria-card p {
+      font-size: 0.85rem;
+      margin-bottom: 6px;
+    }
+
+    .categoria-card .badge {
+      background: #1a1a1a;
+      display: inline-block;
+      padding: 2px 8px;
+      font-size: 0.7rem;
+      margin-top: 8px;
+      color: #aaaaaa;
+    }
+
+    .categoria-card .info-block {
+      margin-top: 12px;
+    }
+
+    .categoria-card .info-block p {
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    /* Lista derechos */
+    .derechos-lista {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .derechos-lista li {
+      padding: 3px 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+    }
+
+    .derechos-lista li::before {
+      content: "—";
+      color: #b8860b;
+    }
+
+    /* Utilidades */
+    .text-center {
+      text-align: center;
+    }
+    .mt-3 {
+      margin-top: 16px;
+    }
+    .mb-3 {
+      margin-bottom: 16px;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      #flags-container { gap: 8px; }
-      #flags button { min-width: 60px; padding: 4px; }
-      #flags img { width: 32px; height: 22px; }
-      .titulo-seccion { font-size: 18px; padding: 8px 16px; }
-      .boton-elegante { font-size: 16px; padding: 10px 20px; }
+      .contenedor-convocatoria {
+        padding: 0 16px 30px;
+      }
+      .card, .categoria-card {
+        padding: 12px 16px;
+      }
+      .titulo-seccion {
+        font-size: 1rem;
+        margin: 16px 0 10px;
+      }
+      .fechas-banner {
+        padding: 10px 12px;
+      }
+      .fechas-banner .fecha-texto {
+        font-size: 0.8rem;
+      }
+      .tabla-cronograma th,
+      .tabla-cronograma td {
+        padding: 6px 8px;
+        font-size: 0.8rem;
+      }
+      .issn .issn-texto {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+      }
+      .nota-requisitos-final {
+        padding: 12px 14px;
+      }
+      .boton-3d {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+      }
     }
   </style>
 </head>
 <body>
 
-<!-- BANDERAS TRADUCTOR (STICKY) -->
 <div id="flags">
   <div id="flags-container">
     <button id="flag-es" class="active" onclick="translateToSpanish()">
@@ -298,430 +461,410 @@
   </div>
 </div>
 
-<!-- CONTENIDO PRINCIPAL CONVOCATORIA -->
 <div class="contenedor-convocatoria" id="convocatoria2">
 
-  <!-- BOTÓN ATRÁS CENTRADO -->
   <div class="boton-atras-container">
-    <button class="boton-atras" onclick="window.location.href='https://explorandomuseosyartelatinoamericano.netlify.app/'">
-      <span id="texto-boton-atras">⬅ Atrás a Página Principal</span>
+    <button class="boton-atras" onclick="window.location.href='https://explorandomuseosyartelatinoamericano.netlify.app/'" id="texto-boton-atras">
+      ← Atrás
     </button>
   </div>
 
-  <!-- IMAGEN PRINCIPAL -->
   <img src="https://i.postimg.cc/GtD8X2fm/Captura%20de%20pantalla%202026%2002%2027%20191710.png"
-       alt="Convocatoria Jóvenes Creadores de Latinoamérica · Edición 2 · Mujer y territorio"
+       alt="Convocatoria Jóvenes Creadores de Latinoamérica"
        class="img-principal">
 
-  <!-- TEXTO INICIAL (fechas) -->
-  <p style="font-size: 16px; margin-top: 15px; text-align:center; background: #111; padding: 15px; border-radius: 50px; border:1px solid #b8860b;">
-    <strong id="convocatoria-numero">Convocatoria abierta – Edición No. 2</strong><br>
-    <span id="tema-principal" style="color:#ffd966; font-size: 1.2rem;"><strong>Transformar el territorio: la fuerza de la mujer en la mirada joven de Latinoamérica.</strong></span><br>
-    <strong id="recepcion-obras">Recepción de obras:</strong> 27 de febrero al 27 de marzo de 2026   |  
-    <strong id="publicacion-fecha">Publicación:</strong> 27 de abril de 2026
-  </p>
-
-  <!-- ISSN -->
-  <div class="issn">ISSN 3115-0357</div>
-
-  <hr>
-
-  <!-- NOTA DE ADVERTENCIA SOBRE REQUISITOS -->
-  <div class="nota-requisitos" id="nota-requisitos-unica">
-    <p><strong id="aviso-titulo">📋 ATENCIÓN: REQUISITOS OBLIGATORIOS</strong></p>
-    <p id="aviso-texto1">Todos los campos del formulario deben ser diligenciados en su totalidad. Si falta algún requisito (biografía, resúmenes, palabras clave, fichas técnicas, documento de autorización firmado) la postulación será <strong>devuelta automáticamente sin revisión</strong>.</p>
-    <p id="aviso-texto2"><strong>Extensión de resúmenes:</strong> mínimo 70 y máximo 100 palabras (en español, inglés y portugués). No se aceptan campos vacíos.</p>
-    <p id="aviso-texto3">Las palabras clave deben incluirse en los tres idiomas. El documento de autorización firmado (PDF) es obligatorio.</p>
+  <div class="fechas-banner">
+    <strong id="convocatoria-numero">Convocatoria abierta – Edición No. 2</strong>
+    <div class="fecha-texto">
+      <span id="recepcion-obras-texto">27 feb – 16 abr 2026</span> &nbsp;|&nbsp;
+      <span id="publicacion-fecha-texto">Publicación: 16 may 2026</span>
+    </div>
   </div>
 
-  <!-- TEMÁTICA -->
-  <h3 class="titulo-seccion" id="titulo-tematica">Temática central</h3>
-  <p id="descripcion-tematica" style="font-size: 1.1rem;">
-    <strong>“Transformar el territorio: la fuerza de la mujer en la mirada joven de Latinoamérica”</strong><br><br>
-    La Revista <em>Jóvenes Creadores de Latinoamérica</em> invita a niños y jóvenes de 8 a 17 años a participar con obras que reflejen la relación entre la mujer, el territorio y la transformación social, desde una perspectiva juvenil y latinoamericana.
-  </p>
+  <!-- ISSN con enlace oficial -->
+  <div class="issn">
+    <div class="issn-texto">
+      <a href="https://portal.issn.org/resource/ISSN/3115-0357" target="_blank" rel="noopener noreferrer" id="issn-valor">ISSN 3115-0357</a>
+    </div>
+    <div class="issn-label" id="issn-label">International Standard Serial Number</div>
+  </div>
 
-  <!-- PARTICIPANTES -->
-  <h3 class="titulo-seccion" id="titulo-participantes">¿Quiénes participan?</h3>
-  <p id="descripcion-participantes1">
-    <strong>Edad:</strong> niños y jóvenes de 8 a 17 años (de Latinoamérica y el Caribe).<br>
-    Pueden participar con obras originales en artes visuales o literatura.
-  </p>
-  <p id="descripcion-participantes2" style="margin-top: 10px;">
-    También están invitados a participar colectivos juveniles, talleres creativos y proyectos educativos que fomenten la creación artística en la niñez y juventud.
-  </p>
+  <div class="card">
+    <h2 class="titulo-seccion" id="titulo-tematica">Temática central</h2>
+    <p id="descripcion-tematica" style="font-size: 0.9rem; line-height: 1.4;">
+      <strong>“Transformar el territorio: la fuerza de la mujer en la mirada joven de Latinoamérica”</strong><br>
+      La Revista <em>Jóvenes Creadores de Latinoamérica</em> invita a niños y jóvenes de 8 a 17 años a participar con obras que reflejen la relación entre la mujer, el territorio y la transformación social, desde una perspectiva juvenil y latinoamericana.
+    </p>
+  </div>
 
-  <!-- CATEGORÍAS -->
-  <h3 class="titulo-seccion" id="titulo-categorias">Categorías</h3>
+  <div class="card">
+    <h2 class="titulo-seccion" id="titulo-participantes">Participantes</h2>
+    <p id="descripcion-participantes1" style="font-size: 0.9rem;">
+      <strong>Edad:</strong> niños y jóvenes de 8 a 17 años (Latinoamérica y Caribe). Pueden participar con obras originales en artes visuales o literatura.
+    </p>
+    <p id="descripcion-participantes2" style="margin-top: 6px; font-size: 0.85rem; color: #cccccc;">
+      También están invitados colectivos juveniles, talleres creativos y proyectos educativos.
+    </p>
+  </div>
 
-  <ul id="lista-categorias" style="list-style-type: none; padding-left: 5px;">
-    <li style="margin-bottom: 20px;">
-      <strong id="artes-visuales-titulo" style="font-size: 1.3rem;">🎨 Artes visuales:</strong>
-      <span id="artes-visuales-desc"> Pintura · Dibujo · Ilustración digital · Técnica mixta · Collage · Fotografía artística</span><br>
-      <em id="artes-visuales-max">(Máximo 3 obras por participante)</em>
+  <h2 class="titulo-seccion" id="titulo-categorias">Categorías</h2>
+  <div class="categorias-grid">
+    <div class="categoria-card">
+      <h4 id="artes-visuales-titulo">Artes visuales</h4>
+      <p id="artes-visuales-desc">Pintura · Dibujo · Ilustración digital · Técnica mixta · Collage · Fotografía</p>
+      <div class="badge" id="artes-visuales-max">Máx. 3 obras</div>
+      <div class="info-block">
+        <p><strong id="info-obligatoria-titulo">Información por obra:</strong></p>
+        <ul>
+          <li><strong>Título</strong> <span id="item-titulo-obra">(es, en, pt)</span></li>
+          <li><strong>Resumen</strong> <span id="item-resumen-obra">(70-100 palabras, 3 idiomas)</span></li>
+          <li><strong id="item-palabras-clave">Palabras clave:</strong> 3-5 (3 idiomas)</li>
+          <li><strong id="item-ficha-tecnica">Ficha técnica:</strong> autor, año, técnica, dimensiones</li>
+          <li><strong id="item-archivo-obra">Archivo:</strong> JPG o PNG</li>
+        </ul>
+      </div>
+    </div>
 
-      <p><strong id="info-obligatoria-titulo">📌 Información obligatoria por cada obra:</strong></p>
-      <ul>
-        <li><strong>Título</strong> <span id="item-titulo-obra">(en español, inglés y portugués)</span></li>
-        <li><strong>Resumen</strong> <span id="item-resumen-obra">(mín. 70 – máx. 100 palabras, en español, inglés y portugués)</span></li>
-        <li><strong id="item-palabras-clave">Palabras clave:</strong> 3 a 5 (en español, inglés y portugués)</li>
-        <li><strong id="item-ficha-tecnica">Ficha técnica:</strong> autor/a, año, técnica, dimensiones</li>
-        <li><strong id="item-archivo-obra">Archivo:</strong> JPG o PNG (subida con cuenta Google)</li>
-        <li><strong>¿Obra publicada antes?</strong> (Sí/No)</li>
-      </ul>
-    </li>
+    <div class="categoria-card">
+      <h4 id="literatura-titulo">Literatura</h4>
+      <p id="literatura-desc">Poesía · Minicuento · Relato · Ensayo · Investigación</p>
+      <div class="badge" id="literatura-max">1 obra por participante</div>
+      <div class="info-block">
+        <p><strong id="info-obligatoria-literatura">Requisitos:</strong></p>
+        <ul>
+          <li><strong>Título</strong> <span id="item-titulo-obra-lit">(es, en, pt)</span></li>
+          <li><strong>Resumen</strong> <span id="item-resumen-obra-lit">(70-100 palabras, 3 idiomas)</span></li>
+          <li><strong>Palabras clave</strong> <span id="item-palabras-clave-lit">3-5 (3 idiomas)</span></li>
+          <li><strong id="item-archivo-texto">Archivo</strong> DOC/DOCX</li>
+          <li id="item-papel">Carta, márgenes 2.54 cm, doble espacio, Times 12</li>
+          <li id="item-extension">Extensión: 600-1500 palabras</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 
-    <li>
-      <strong id="literatura-titulo" style="font-size: 1.3rem;">✍️ Literatura:</strong>
-      <span id="literatura-desc"> Poesía · Minicuento · Relato · Ensayo crítico · Investigación y creación literaria o académica</span><br>
-      <em id="literatura-max">(Una obra por participante)</em>
+  <div class="card">
+    <h2 class="titulo-seccion" id="titulo-cronograma">Cronograma 2026</h2>
+    <table class="tabla-cronograma">
+      <thead><tr><th id="columna-fase">Fase</th><th id="columna-fecha">Fecha</th> </thead>
+      <tbody>
+        <tr><td id="fase-recepcion">Recepción de obras</td><td>27 feb – 16 abr</td> </tr>
+        <tr><td id="fase-seleccion">Selección y curaduría</td><td>17 abr – 9 may</td> </tr>
+        <tr><td id="fase-publicacion">Publicación digital</td><td>16 may</td> </tr>
+      </tbody>
+    </table>
+  </div>
 
-      <p><strong id="info-obligatoria-literatura">📄 Requisitos:</strong></p>
-      <ul>
-        <li><strong>Título</strong> <span id="item-titulo-obra-lit">(español, inglés, portugués)</span></li>
-        <li><strong>Resumen</strong> <span id="item-resumen-obra-lit">(mín. 70 – máx. 100 palabras, en español, inglés y portugués)</span></li>
-        <li><strong>Palabras clave</strong> <span id="item-palabras-clave-lit">3-5 (en español, inglés y portugués)</span></li>
-        <li><strong id="item-archivo-texto">Archivo</strong> DOC/DOCX</li>
-        <li id="item-papel">Formato carta, márgenes 2.54 cm, doble espacio, Times New Roman 12</li>
-        <li id="item-extension">Extensión: 600 a 1500 palabras (1 a 3 páginas)</li>
-        <li id="item-normas-apa">Normas APA 7ª ed. (si hay referencias)</li>
-        <li><strong>Ficha técnica literaria:</strong> título, autor/a, país/ciudad, categoría, extensión, año de creación</li>
-      </ul>
-    </li>
-  </ul>
-
-  <!-- CRONOGRAMA -->
-  <h3 class="titulo-seccion" id="titulo-cronograma">📅 Cronograma 2026</h3>
-  <table class="tabla-cronograma">
-    <thead>
-      <tr><th id="columna-fase">Fase</th><th id="columna-fecha">Fecha</th></tr>
-    </thead>
-    <tbody>
-      <tr><td id="fase-recepcion">Recepción de obras</td><td>27 de febrero – 27 de marzo</td></tr>
-      <tr><td id="fase-seleccion">Selección y curaduría</td><td>28 de marzo – 20 de abril</td></tr>
-      <tr><td id="fase-publicacion">Publicación digital</td><td>27 de abril</td></tr>
-    </tbody>
-  </table>
-
-  <!-- POSTULACIÓN -->
-  <h3 class="titulo-seccion" id="titulo-postulacion">📩 ¿Cómo postular?</h3>
-  <p id="descripcion-postulacion">Llena el formulario en línea y adjunta tus obras (requiere cuenta de Google para subir archivos).</p>
-
-  <p style="background:#1e1e1e; padding: 15px; border-radius: 20px;" id="recomendacion-politicas">
-    📘 Antes de enviar tu obra, lee las 
-    <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Políticas Editoriales</a>.
-    Al enviar el formulario aceptas sus términos.
-  </p>
-
-  <a href="https://docs.google.com/forms/d/e/1FAIpQLSdv0sPv_VcwNs3cpRYWXNHzm1uWSencfYkaT-2uR93JtK42YA/viewform?usp=dialog" target="_blank" class="boton-elegante" id="texto-formulario-inscripcion">
-    📝 Formulario de inscripción (artistas jóvenes)
-  </a>
-
-  <!-- SECCIÓN DE AUTORIZACIÓN ACTUALIZADA (sin museos) -->
-  <h3 class="titulo-seccion" id="titulo-derechos">Autorización de Participación, declaración de autoría y Publicación de Obra (Menores de edad)</h3>
-
-  <ul id="lista-derechos">
-    <li id="derecho1">Obras originales e inéditas</li>
-    <li id="derecho2">El autor conserva todos sus derechos</li>
-    <li id="derecho3">Autorizas la publicación digital con créditos</li>
-    <li id="derecho4">Es obligatorio leer, firmar y subir el documento de autorización (PDF)</li>
-  </ul>
-
-  <p>
-    📄 <strong id="texto-documento-derechos">Documento de autorización (descarga obligatoria para menores de edad):</strong><br>
-    <!-- ENLACE ACTUALIZADO -->
-    <a href="https://drive.google.com/file/d/1fBxBltUf75eriVR5c_nVg2PSrkF6sdc8/view?usp=sharing" target="_blank" id="texto-descargar-derechos">
-      🔗 Descargar documento
+  <div class="card text-center">
+    <h2 class="titulo-seccion" id="titulo-postulacion">Postulación</h2>
+    <p id="descripcion-postulacion" style="margin-bottom: 16px; font-size: 0.9rem;">Completa el formulario en línea (requiere cuenta Google).</p>
+    <p id="recomendacion-politicas" style="margin: 10px 0 16px; font-size: 0.8rem;">
+      Antes de enviar, lee las <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Políticas Editoriales</a>.
+    </p>
+    <!-- Botón formulario 3D con neón -->
+    <a href="https://docs.google.com/forms/d/e/1FAIpQLSdv0sPv_VcwNs3cpRYWXNHzm1uWSencfYkaT-2uR93JtK42YA/viewform?usp=dialog" target="_blank" class="boton-3d" id="texto-formulario-inscripcion">
+      📝 Formulario de inscripción
     </a>
-  </p>
+  </div>
 
-  <!-- LOGO ADICIONAL -->
-  <img src="https://i.postimg.cc/05Y01Y0G/Proyecto-nuevo-rj-(4).jpg"
-       alt="Logo Jóvenes Creadores"
-       style="display:block; margin: 40px auto 20px; max-width: 700px; width:100%; border-radius: 20px; opacity:0.9;">
+  <div class="card">
+    <h2 class="titulo-seccion" id="titulo-derechos">Autorización</h2>
+    <ul class="derechos-lista" id="lista-derechos">
+      <li id="derecho1">Obras originales e inéditas</li>
+      <li id="derecho2">El autor conserva sus derechos</li>
+      <li id="derecho3">Autorización de publicación digital con créditos</li>
+      <li id="derecho4">Documento de autorización firmado (PDF) obligatorio</li>
+    </ul>
+    <p style="margin-top: 16px; font-size: 0.85rem;">
+      <strong id="texto-documento-derechos">Documento de autorización (menores de edad):</strong><br>
+      <!-- Botón descarga 3D con neón -->
+      <a href="https://drive.google.com/file/d/1fBxBltUf75eriVR5c_nVg2PSrkF6sdc8/view?usp=sharing" target="_blank" class="boton-3d" id="texto-descargar-derechos" style="margin-top: 10px; display: inline-block;">
+        📄 Descargar documento
+      </a>
+    </p>
+  </div>
 
-  <!-- VOLVER INICIO -->
-  <div style="text-align: center; margin: 40px 0 20px;">
-    <a href="https://explorandomuseosyartelatinoamericano.netlify.app/" class="boton-elegante" id="texto-boton-volver">
-      🏠 Volver a la página de inicio
+  <div class="nota-requisitos-final" id="nota-requisitos-unica">
+    <p class="titulo-nota"><strong id="aviso-titulo">REQUISITOS OBLIGATORIOS</strong></p>
+    <p id="aviso-texto1">Todos los campos del formulario deben ser diligenciados. Si falta algún requisito (biografía, resúmenes, palabras clave, fichas técnicas, documento de autorización) la postulación será devuelta sin revisión.</p>
+    <p id="aviso-texto2"><strong>Resúmenes:</strong> mínimo 70 y máximo 100 palabras (español, inglés, portugués).</p>
+    <p id="aviso-texto3">Palabras clave en los tres idiomas. Documento de autorización firmado (PDF) obligatorio.</p>
+  </div>
+
+  <div class="text-center mt-3">
+    <img src="https://i.postimg.cc/05Y01Y0G/Proyecto-nuevo-rj-(4).jpg"
+         alt="Logo Jóvenes Creadores"
+         style="max-width: 350px; width: 100%; opacity: 0.6;">
+  </div>
+
+  <div class="text-center mt-3 mb-3">
+    <a href="https://explorandomuseosyartelatinoamericano.netlify.app/" class="boton-3d" id="texto-boton-volver">
+      🏠 Volver al inicio
     </a>
   </div>
 </div>
 
-<!-- SCRIPT DE TRADUCCIÓN COMPLETO Y CORREGIDO -->
 <script>
-// Objeto de traducciones completo para todos los idiomas
 const translations = {
   es: {
-    // Textos generales
-    'texto-boton-atras': '⬅ Atrás a Página Principal',
+    'texto-boton-atras': '← Atrás',
     'convocatoria-numero': 'Convocatoria abierta – Edición No. 2',
-    'tema-principal': 'Transformar el territorio: la fuerza de la mujer en la mirada joven de Latinoamérica.',
-    'recepcion-obras': 'Recepción de obras:',
-    'publicacion-fecha': 'Publicación:',
-    'aviso-titulo': '📋 ATENCIÓN: REQUISITOS OBLIGATORIOS',
-    'aviso-texto1': 'Todos los campos del formulario deben ser diligenciados en su totalidad. Si falta algún requisito (biografía, resúmenes, palabras clave, fichas técnicas, documento de autorización firmado) la postulación será <strong>devuelta automáticamente sin revisión</strong>.',
-    'aviso-texto2': '<strong>Extensión de resúmenes:</strong> mínimo 70 y máximo 100 palabras (en español, inglés y portugués). No se aceptan campos vacíos.',
-    'aviso-texto3': 'Las palabras clave deben incluirse en los tres idiomas. El documento de autorización firmado (PDF) es obligatorio.',
+    'recepcion-obras-texto': '27 feb – 16 abr 2026',
+    'publicacion-fecha-texto': 'Publicación: 16 may 2026',
+    'issn-valor': 'ISSN 3115-0357',
+    'issn-label': 'International Standard Serial Number',
+    'aviso-titulo': 'REQUISITOS OBLIGATORIOS',
+    'aviso-texto1': 'Todos los campos del formulario deben ser diligenciados. Si falta algún requisito (biografía, resúmenes, palabras clave, fichas técnicas, documento de autorización) la postulación será devuelta sin revisión.',
+    'aviso-texto2': '<strong>Resúmenes:</strong> mínimo 70 y máximo 100 palabras (español, inglés, portugués).',
+    'aviso-texto3': 'Palabras clave en los tres idiomas. Documento de autorización firmado (PDF) obligatorio.',
     'titulo-tematica': 'Temática central',
-    'descripcion-tematica': '<strong>“Transformar el territorio: la fuerza de la mujer en la mirada joven de Latinoamérica”</strong><br><br>La Revista <em>Jóvenes Creadores de Latinoamérica</em> invita a niños y jóvenes de 8 a 17 años a participar con obras que reflejen la relación entre la mujer, el territorio y la transformación social, desde una perspectiva juvenil y latinoamericana.',
-    'titulo-participantes': '¿Quiénes participan?',
-    'descripcion-participantes1': '<strong>Edad:</strong> niños y jóvenes de 8 a 17 años (de Latinoamérica y el Caribe).<br>Pueden participar con obras originales en artes visuales o literatura.',
-    'descripcion-participantes2': 'También están invitados a participar colectivos juveniles, talleres creativos y proyectos educativos que fomenten la creación artística en la niñez y juventud.',
+    'descripcion-tematica': '<strong>“Transformar el territorio: la fuerza de la mujer en la mirada joven de Latinoamérica”</strong><br>La Revista <em>Jóvenes Creadores de Latinoamérica</em> invita a niños y jóvenes de 8 a 17 años a participar con obras que reflejen la relación entre la mujer, el territorio y la transformación social, desde una perspectiva juvenil y latinoamericana.',
+    'titulo-participantes': 'Participantes',
+    'descripcion-participantes1': '<strong>Edad:</strong> niños y jóvenes de 8 a 17 años (Latinoamérica y Caribe). Pueden participar con obras originales en artes visuales o literatura.',
+    'descripcion-participantes2': 'También están invitados colectivos juveniles, talleres creativos y proyectos educativos.',
     'titulo-categorias': 'Categorías',
-    'artes-visuales-titulo': '🎨 Artes visuales:',
-    'artes-visuales-desc': 'Pintura · Dibujo · Ilustración digital · Técnica mixta · Collage · Fotografía artística',
-    'artes-visuales-max': '(Máximo 3 obras por participante)',
-    'info-obligatoria-titulo': 'Información obligatoria por cada obra:',
-    'item-titulo-obra': '(en español, inglés y portugués)',
-    'item-resumen-obra': '(mín. 70 – máx. 100 palabras, en español, inglés y portugués)',
+    'artes-visuales-titulo': 'Artes visuales',
+    'artes-visuales-desc': 'Pintura · Dibujo · Ilustración digital · Técnica mixta · Collage · Fotografía',
+    'artes-visuales-max': 'Máx. 3 obras',
+    'info-obligatoria-titulo': 'Información por obra:',
+    'item-titulo-obra': '(es, en, pt)',
+    'item-resumen-obra': '(70-100 palabras, 3 idiomas)',
     'item-palabras-clave': 'Palabras clave:',
     'item-ficha-tecnica': 'Ficha técnica:',
     'item-archivo-obra': 'Archivo:',
-    'literatura-titulo': '✍️ Literatura:',
-    'literatura-desc': 'Poesía · Minicuento · Relato · Ensayo crítico · Investigación y creación literaria o académica',
-    'literatura-max': '(Una obra por participante)',
-    'info-obligatoria-literatura': '📄 Requisitos:',
-    'item-titulo-obra-lit': '(español, inglés, portugués)',
-    'item-resumen-obra-lit': '(mín. 70 – máx. 100 palabras, en español, inglés y portugués)',
-    'item-palabras-clave-lit': '3-5 (en español, inglés y portugués)',
+    'literatura-titulo': 'Literatura',
+    'literatura-desc': 'Poesía · Minicuento · Relato · Ensayo · Investigación',
+    'literatura-max': '1 obra por participante',
+    'info-obligatoria-literatura': 'Requisitos:',
+    'item-titulo-obra-lit': '(es, en, pt)',
+    'item-resumen-obra-lit': '(70-100 palabras, 3 idiomas)',
+    'item-palabras-clave-lit': '3-5 (3 idiomas)',
     'item-archivo-texto': 'Archivo',
-    'item-papel': 'Formato carta, márgenes 2.54 cm, doble espacio, Times New Roman 12',
-    'item-extension': 'Extensión: 600 a 1500 palabras (1 a 3 páginas)',
-    'item-normas-apa': 'Normas APA 7ª ed. (si hay referencias)',
-    'titulo-cronograma': '📅 Cronograma 2026',
+    'item-papel': 'Carta, márgenes 2.54 cm, doble espacio, Times 12',
+    'item-extension': 'Extensión: 600-1500 palabras',
+    'item-normas-apa': 'Normas APA 7ª ed.',
+    'titulo-cronograma': 'Cronograma 2026',
     'columna-fase': 'Fase',
     'columna-fecha': 'Fecha',
     'fase-recepcion': 'Recepción de obras',
     'fase-seleccion': 'Selección y curaduría',
     'fase-publicacion': 'Publicación digital',
-    'titulo-postulacion': '📩 ¿Cómo postular?',
-    'descripcion-postulacion': 'Llena el formulario en línea y adjunta tus obras (requiere cuenta de Google para subir archivos).',
-    'recomendacion-politicas': '📘 Antes de enviar tu obra, lee las <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Políticas Editoriales</a>. Al enviar el formulario aceptas sus términos.',
-    'texto-formulario-inscripcion': '📝 Formulario de inscripción (artistas jóvenes)',
-    'titulo-derechos': 'Autorización de Participación, declaración de autoría y Publicación de Obra (Menores de edad)',
+    'titulo-postulacion': 'Postulación',
+    'descripcion-postulacion': 'Completa el formulario en línea (requiere cuenta Google).',
+    'recomendacion-politicas': 'Antes de enviar, lee las <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Políticas Editoriales</a>.',
+    'texto-formulario-inscripcion': '📝 Formulario de inscripción',
+    'titulo-derechos': 'Autorización',
     'derecho1': 'Obras originales e inéditas',
-    'derecho2': 'El autor conserva todos sus derechos',
-    'derecho3': 'Autorizas la publicación digital con créditos',
-    'derecho4': 'Es obligatorio leer, firmar y subir el documento de autorización (PDF)',
-    'texto-documento-derechos': 'Documento de autorización (descarga obligatoria para menores de edad):',
-    'texto-descargar-derechos': '🔗 Descargar documento',
-    'texto-boton-volver': '🏠 Volver a la página de inicio'
+    'derecho2': 'El autor conserva sus derechos',
+    'derecho3': 'Autorización de publicación digital con créditos',
+    'derecho4': 'Documento de autorización firmado (PDF) obligatorio',
+    'texto-documento-derechos': 'Documento de autorización (menores de edad):',
+    'texto-descargar-derechos': '📄 Descargar documento',
+    'texto-boton-volver': ' Volver al inicio'
   },
-  
   en: {
-    'texto-boton-atras': '⬅ Back to Main Page',
+    'texto-boton-atras': '← Back',
     'convocatoria-numero': 'Open Call – Issue No. 2',
-    'tema-principal': 'Transforming the territory: the strength of women through the young gaze of Latin America.',
-    'recepcion-obras': 'Submission:',
-    'publicacion-fecha': 'Publication:',
-    'aviso-titulo': '📋 ATTENTION: MANDATORY REQUIREMENTS',
-    'aviso-texto1': 'All form fields must be fully completed. If any requirement (bio, abstracts, keywords, technical sheets, signed authorization document) is missing, the application will be <strong>automatically returned without review</strong>.',
-    'aviso-texto2': '<strong>Abstract length:</strong> minimum 70 and maximum 100 words (in Spanish, English and Portuguese). No empty fields allowed.',
-    'aviso-texto3': 'Keywords must be included in all three languages. The signed authorization document (PDF) is mandatory.',
+    'recepcion-obras-texto': 'Feb 27 – Apr 16, 2026',
+    'publicacion-fecha-texto': 'Publication: May 16, 2026',
+    'issn-valor': 'ISSN 3115-0357',
+    'issn-label': 'International Standard Serial Number',
+    'aviso-titulo': 'MANDATORY REQUIREMENTS',
+    'aviso-texto1': 'All form fields must be completed. If any requirement is missing, the application will be returned without review.',
+    'aviso-texto2': '<strong>Abstracts:</strong> minimum 70 and maximum 100 words (Spanish, English, Portuguese).',
+    'aviso-texto3': 'Keywords in all three languages. Signed authorization document (PDF) required.',
     'titulo-tematica': 'Main theme',
-    'descripcion-tematica': '<strong>“Transforming the territory: the strength of women through the young gaze of Latin America”</strong><br><br>The Magazine <em>Young Creators of Latin America</em> invites children and youth aged 8 to 17 to submit works reflecting the relationship between women, territory and social transformation, from a youthful Latin American perspective.',
-    'titulo-participantes': 'Who can participate?',
-    'descripcion-participantes1': '<strong>Age:</strong> children and youth from 8 to 17 years old (Latin America and the Caribbean).<br>They may submit original works in visual arts or literature.',
-    'descripcion-participantes2': 'Youth groups, creative workshops and educational projects that encourage artistic creation in childhood and youth are also invited.',
+    'descripcion-tematica': '<strong>“Transforming the territory: the strength of women through the young gaze of Latin America”</strong><br>The Magazine <em>Young Creators of Latin America</em> invites children and youth aged 8 to 17 to submit works reflecting the relationship between women, territory and social transformation.',
+    'titulo-participantes': 'Participants',
+    'descripcion-participantes1': '<strong>Age:</strong> children and youth from 8 to 17 years old (Latin America and Caribbean). Original works in visual arts or literature.',
+    'descripcion-participantes2': 'Youth groups, creative workshops and educational projects are also invited.',
     'titulo-categorias': 'Categories',
-    'artes-visuales-titulo': '🎨 Visual arts:',
-    'artes-visuales-desc': 'Painting · Drawing · Digital illustration · Mixed media · Collage · Art photography',
-    'artes-visuales-max': '(Max. 3 works per participant)',
+    'artes-visuales-titulo': 'Visual arts',
+    'artes-visuales-desc': 'Painting · Drawing · Digital illustration · Mixed media · Collage · Photography',
+    'artes-visuales-max': 'Max. 3 works',
     'info-obligatoria-titulo': 'Required info per work:',
-    'item-titulo-obra': '(in Spanish, English and Portuguese)',
-    'item-resumen-obra': '(min. 70 – max. 100 words, in Spanish, English and Portuguese)',
+    'item-titulo-obra': '(es, en, pt)',
+    'item-resumen-obra': '(70-100 words, 3 languages)',
     'item-palabras-clave': 'Keywords:',
     'item-ficha-tecnica': 'Technical data:',
     'item-archivo-obra': 'File:',
-    'literatura-titulo': '✍️ Literature:',
-    'literatura-desc': 'Poetry · Short story · Essay · Literary or academic creation',
-    'literatura-max': '(One work per participant)',
-    'info-obligatoria-literatura': '📄 Requirements:',
-    'item-titulo-obra-lit': '(Spanish, English, Portuguese)',
-    'item-resumen-obra-lit': '(min. 70 – max. 100 words, in Spanish, English and Portuguese)',
-    'item-palabras-clave-lit': '3-5 (in Spanish, English and Portuguese)',
+    'literatura-titulo': 'Literature',
+    'literatura-desc': 'Poetry · Short story · Essay · Research',
+    'literatura-max': '1 work per participant',
+    'info-obligatoria-literatura': 'Requirements:',
+    'item-titulo-obra-lit': '(es, en, pt)',
+    'item-resumen-obra-lit': '(70-100 words, 3 languages)',
+    'item-palabras-clave-lit': '3-5 (3 languages)',
     'item-archivo-texto': 'File',
-    'item-papel': 'Letter size, 2.54 cm margins, double space, Times New Roman 12',
-    'item-extension': 'Length: 600–1500 words (1–3 pages)',
-    'item-normas-apa': 'APA 7th ed. (if references)',
-    'titulo-cronograma': '📅 Timeline 2026',
+    'item-papel': 'Letter size, 2.54 cm margins, double space, Times 12',
+    'item-extension': 'Length: 600-1500 words',
+    'item-normas-apa': 'APA 7th ed.',
+    'titulo-cronograma': 'Timeline 2026',
     'columna-fase': 'Phase',
     'columna-fecha': 'Date',
     'fase-recepcion': 'Submission',
     'fase-seleccion': 'Selection & curation',
     'fase-publicacion': 'Digital publication',
-    'titulo-postulacion': '📩 How to apply?',
-    'descripcion-postulacion': 'Fill out the online form and attach your works (Google account required for uploads).',
-    'recomendacion-politicas': '📘 Before submitting, read the <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Editorial Policies</a>. By sending the form you accept its terms.',
-    'texto-formulario-inscripcion': '📝 Registration form (young artists)',
-    'titulo-derechos': 'Participation Authorization, Authorship Statement and Publication of Work (Minors)',
+    'titulo-postulacion': 'How to apply',
+    'descripcion-postulacion': 'Complete the online form (Google account required).',
+    'recomendacion-politicas': 'Before submitting, read the <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Editorial Policies</a>.',
+    'texto-formulario-inscripcion': '📝 Registration form',
+    'titulo-derechos': 'Authorization',
     'derecho1': 'Original and unpublished works',
-    'derecho2': 'Author retains all rights',
-    'derecho3': 'You authorize digital publication with credits',
-    'derecho4': 'Mandatory to read, sign and upload the authorization document (PDF)',
-    'texto-documento-derechos': 'Authorization document (mandatory download for minors):',
-    'texto-descargar-derechos': '🔗 Download document',
-    'texto-boton-volver': '🏠 Return to home page'
+    'derecho2': 'Author retains rights',
+    'derecho3': 'Digital publication authorization with credits',
+    'derecho4': 'Signed authorization document (PDF) required',
+    'texto-documento-derechos': 'Authorization document (minors):',
+    'texto-descargar-derechos': '📄 Download document',
+    'texto-boton-volver': ' Back to home'
   },
-  
   fr: {
-    'texto-boton-atras': '⬅ Retour à la Page Principale',
+    'texto-boton-atras': '← Retour',
     'convocatoria-numero': 'Appel ouvert – Édition No. 2',
-    'tema-principal': 'Transformer le territoire : la force des femmes dans le regard jeune de l\'Amérique latine.',
-    'recepcion-obras': 'Réception des œuvres :',
-    'publicacion-fecha': 'Publication :',
-    'aviso-titulo': '📋 ATTENTION : EXIGENCES OBLIGATOIRES',
-    'aviso-texto1': 'Tous les champs du formulaire doivent être entièrement remplis. Si une exigence (biographie, résumés, mots-clés, fiches techniques, document d\'autorisation signé) manque, la candidature sera <strong>automatiquement retournée sans examen</strong>.',
-    'aviso-texto2': '<strong>Longueur des résumés :</strong> minimum 70 et maximum 100 mots (en espagnol, anglais et portugais). Aucun champ vide accepté.',
-    'aviso-texto3': 'Les mots-clés doivent être inclus dans les trois langues. Le document d\'autorisation signé (PDF) est obligatoire.',
+    'recepcion-obras-texto': '27 fév – 16 avr 2026',
+    'publicacion-fecha-texto': 'Publication: 16 mai 2026',
+    'issn-valor': 'ISSN 3115-0357',
+    'issn-label': 'International Standard Serial Number',
+    'aviso-titulo': 'EXIGENCES OBLIGATOIRES',
+    'aviso-texto1': 'Tous les champs doivent être remplis. Si une exigence manque, la candidature sera retournée sans examen.',
+    'aviso-texto2': '<strong>Résumés:</strong> minimum 70 et maximum 100 mots (espagnol, anglais, portugais).',
+    'aviso-texto3': 'Mots-clés dans les trois langues. Document d\'autorisation signé (PDF) obligatoire.',
     'titulo-tematica': 'Thématique centrale',
-    'descripcion-tematica': '<strong>« Transformer le territoire : la force des femmes dans le regard jeune de l\'Amérique latine »</strong><br><br>La Revue <em>Jeunes Créateurs d\'Amérique Latine</em> invite les enfants et les jeunes de 8 à 17 ans à participer avec des œuvres qui reflètent la relation entre les femmes, le territoire et la transformation sociale, dans une perspective juvénile et latino-américaine.',
-    'titulo-participantes': 'Qui peut participer ?',
-    'descripcion-participantes1': '<strong>Âge :</strong> enfants et jeunes de 8 à 17 ans (Amérique latine et Caraïbes).<br>Ils peuvent participer avec des œuvres originales en arts visuels ou en littérature.',
-    'descripcion-participantes2': 'Les groupes de jeunes, ateliers créatifs et projets éducatifs encourageant la création artistique chez les enfants et les jeunes sont également invités.',
+    'descripcion-tematica': '<strong>« Transformer le territoire : la force des femmes dans le regard jeune de l\'Amérique latine »</strong><br>La Revue <em>Jeunes Créateurs d\'Amérique Latine</em> invite les enfants et les jeunes de 8 à 17 ans à participer.',
+    'titulo-participantes': 'Participants',
+    'descripcion-participantes1': '<strong>Âge:</strong> enfants et jeunes de 8 à 17 ans (Amérique latine et Caraïbes). Œuvres originales en arts visuels ou littérature.',
+    'descripcion-participantes2': 'Groupes de jeunes, ateliers créatifs sont également invités.',
     'titulo-categorias': 'Catégories',
-    'artes-visuales-titulo': '🎨 Arts visuels :',
-    'artes-visuales-desc': 'Peinture · Dessin · Illustration numérique · Technique mixte · Collage · Photographie artistique',
-    'artes-visuales-max': '(Maximum 3 œuvres par participant)',
-    'info-obligatoria-titulo': 'Informations obligatoires par œuvre :',
-    'item-titulo-obra': '(en espagnol, anglais et portugais)',
-    'item-resumen-obra': '(min. 70 – max. 100 mots, en espagnol, anglais et portugais)',
-    'item-palabras-clave': 'Mots-clés :',
-    'item-ficha-tecnica': 'Fiche technique :',
-    'item-archivo-obra': 'Fichier :',
-    'literatura-titulo': '✍️ Littérature :',
-    'literatura-desc': 'Poésie · Mini-récit · Nouvelle · Essai critique · Création littéraire ou académique',
-    'literatura-max': '(Une œuvre par participant)',
-    'info-obligatoria-literatura': '📄 Exigences :',
-    'item-titulo-obra-lit': '(espagnol, anglais, portugais)',
-    'item-resumen-obra-lit': '(min. 70 – max. 100 mots, en espagnol, anglais et portugais)',
-    'item-palabras-clave-lit': '3-5 (en espagnol, anglais et portugais)',
+    'artes-visuales-titulo': 'Arts visuels',
+    'artes-visuales-desc': 'Peinture · Dessin · Illustration numérique · Technique mixte · Collage · Photographie',
+    'artes-visuales-max': 'Max. 3 œuvres',
+    'info-obligatoria-titulo': 'Informations par œuvre:',
+    'item-titulo-obra': '(es, en, pt)',
+    'item-resumen-obra': '(70-100 mots, 3 langues)',
+    'item-palabras-clave': 'Mots-clés:',
+    'item-ficha-tecnica': 'Fiche technique:',
+    'item-archivo-obra': 'Fichier:',
+    'literatura-titulo': 'Littérature',
+    'literatura-desc': 'Poésie · Mini-récit · Nouvelle · Essai · Recherche',
+    'literatura-max': '1 œuvre par participant',
+    'info-obligatoria-literatura': 'Exigences:',
+    'item-titulo-obra-lit': '(es, en, pt)',
+    'item-resumen-obra-lit': '(70-100 mots, 3 langues)',
+    'item-palabras-clave-lit': '3-5 (3 langues)',
     'item-archivo-texto': 'Fichier',
-    'item-papel': 'Format lettre, marges 2,54 cm, double interligne, Times New Roman 12',
-    'item-extension': 'Longueur : 600 à 1500 mots (1 à 3 pages)',
-    'item-normas-apa': 'Normes APA 7e éd. (si références)',
-    'titulo-cronograma': '📅 Calendrier 2026',
+    'item-papel': 'Format lettre, marges 2,54 cm, double interligne, Times 12',
+    'item-extension': 'Longueur: 600-1500 mots',
+    'item-normas-apa': 'Normes APA 7e éd.',
+    'titulo-cronograma': 'Calendrier 2026',
     'columna-fase': 'Phase',
     'columna-fecha': 'Date',
-    'fase-recepcion': 'Réception des œuvres',
-    'fase-seleccion': 'Sélection et curation',
-    'fase-publicacion': 'Publication numérique',
-    'titulo-postulacion': '📩 Comment postuler ?',
-    'descripcion-postulacion': 'Remplissez le formulaire en ligne et joignez vos œuvres (compte Google requis pour les téléchargements).',
-    'recomendacion-politicas': '📘 Avant d\'envoyer votre œuvre, lisez les <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Politiques Éditoriales</a>. En soumettant le formulaire, vous acceptez ses conditions.',
-    'texto-formulario-inscripcion': '📝 Formulaire d\'inscription (jeunes artistes)',
-    'titulo-derechos': 'Autorisation de Participation, Déclaration de Paternité et Publication de l\'Œuvre (Mineurs)',
+    'fase-recepcion': 'Réception',
+    'fase-seleccion': 'Sélection',
+    'fase-publicacion': 'Publication',
+    'titulo-postulacion': 'Postuler',
+    'descripcion-postulacion': 'Formulaire en ligne (compte Google requis).',
+    'recomendacion-politicas': 'Avant d\'envoyer, lisez les <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Politiques Éditoriales</a>.',
+    'texto-formulario-inscripcion': '📝 Formulaire',
+    'titulo-derechos': 'Autorisation',
     'derecho1': 'Œuvres originales et inédites',
-    'derecho2': 'L\'auteur conserve tous ses droits',
-    'derecho3': 'Vous autorisez la publication numérique avec crédits',
-    'derecho4': 'Obligation de lire, signer et télécharger le document d\'autorisation (PDF)',
-    'texto-documento-derechos': 'Document d\'autorisation (téléchargement obligatoire pour mineurs) :',
-    'texto-descargar-derechos': '🔗 Télécharger le document',
-    'texto-boton-volver': '🏠 Retour à la page d\'accueil'
+    'derecho2': 'L\'auteur conserve ses droits',
+    'derecho3': 'Autorisation de publication numérique',
+    'derecho4': 'Document d\'autorisation signé (PDF) obligatoire',
+    'texto-documento-derechos': 'Document d\'autorisation (mineurs):',
+    'texto-descargar-derechos': '📄 Télécharger',
+    'texto-boton-volver': ' Retour'
   },
-  
   pt: {
-    'texto-boton-atras': '⬅ Voltar à Página Principal',
+    'texto-boton-atras': '← Voltar',
     'convocatoria-numero': 'Chamada aberta – Edição No. 2',
-    'tema-principal': 'Transformar o território: a força da mulher no olhar jovem da América Latina.',
-    'recepcion-obras': 'Recepção de obras:',
-    'publicacion-fecha': 'Publicação:',
-    'aviso-titulo': '📋 ATENÇÃO: REQUISITOS OBRIGATÓRIOS',
-    'aviso-texto1': 'Todos os campos do formulário devem ser preenchidos na íntegra. Se faltar algum requisito (biografia, resumos, palavras-chave, fichas técnicas, documento de autorização assinado) a inscrição será <strong>devolvida automaticamente sem revisão</strong>.',
-    'aviso-texto2': '<strong>Extensão dos resumos:</strong> mínimo 70 e máximo 100 palavras (em espanhol, inglês e português). Não são aceitos campos vazios.',
-    'aviso-texto3': 'As palavras-chave devem ser incluídas nos três idiomas. O documento de autorização assinado (PDF) é obrigatório.',
+    'recepcion-obras-texto': '27 fev – 16 abr 2026',
+    'publicacion-fecha-texto': 'Publicação: 16 mai 2026',
+    'issn-valor': 'ISSN 3115-0357',
+    'issn-label': 'International Standard Serial Number',
+    'aviso-titulo': 'REQUISITOS OBRIGATÓRIOS',
+    'aviso-texto1': 'Todos os campos devem ser preenchidos. Se faltar algum requisito, a inscrição será devolvida sem revisão.',
+    'aviso-texto2': '<strong>Resumos:</strong> mínimo 70 e máximo 100 palavras (espanhol, inglês, português).',
+    'aviso-texto3': 'Palavras-chave nos três idiomas. Documento de autorização assinado (PDF) obrigatório.',
     'titulo-tematica': 'Temática central',
-    'descripcion-tematica': '<strong>“Transformar o território: a força da mulher no olhar jovem da América Latina”</strong><br><br>A Revista <em>Jovens Criadores da América Latina</em> convida crianças e jovens de 8 a 17 anos a participar com obras que reflitam a relação entre a mulher, o território e a transformação social, a partir de uma perspectiva juvenil e latino-americana.',
-    'titulo-participantes': 'Quem pode participar?',
-    'descripcion-participantes1': '<strong>Idade:</strong> crianças e jovens de 8 a 17 anos (América Latina e Caribe).<br>Podem participar com obras originais em artes visuais ou literatura.',
-    'descripcion-participantes2': 'Também estão convidados a participar coletivos juvenis, oficinas criativas e projetos educativos que fomentem a criação artística na infância e juventude.',
+    'descripcion-tematica': '<strong>“Transformar o território: a força da mulher no olhar jovem da América Latina”</strong><br>A Revista <em>Jovens Criadores da América Latina</em> convida crianças e jovens de 8 a 17 anos a participar.',
+    'titulo-participantes': 'Participantes',
+    'descripcion-participantes1': '<strong>Idade:</strong> crianças e jovens de 8 a 17 anos (América Latina e Caribe). Obras originais em artes visuais ou literatura.',
+    'descripcion-participantes2': 'Coletivos juvenis, oficinas criativas também são convidados.',
     'titulo-categorias': 'Categorias',
-    'artes-visuales-titulo': '🎨 Artes visuais:',
-    'artes-visuales-desc': 'Pintura · Desenho · Ilustração digital · Técnica mista · Colagem · Fotografia artística',
-    'artes-visuales-max': '(Máximo 3 obras por participante)',
-    'info-obligatoria-titulo': 'Informação obrigatória por obra:',
-    'item-titulo-obra': '(em espanhol, inglês e português)',
-    'item-resumen-obra': '(mín. 70 – máx. 100 palavras, em espanhol, inglês e português)',
+    'artes-visuales-titulo': 'Artes visuais',
+    'artes-visuales-desc': 'Pintura · Desenho · Ilustração digital · Técnica mista · Colagem · Fotografia',
+    'artes-visuales-max': 'Máx. 3 obras',
+    'info-obligatoria-titulo': 'Informação por obra:',
+    'item-titulo-obra': '(es, en, pt)',
+    'item-resumen-obra': '(70-100 palavras, 3 idiomas)',
     'item-palabras-clave': 'Palavras-chave:',
     'item-ficha-tecnica': 'Ficha técnica:',
     'item-archivo-obra': 'Arquivo:',
-    'literatura-titulo': '✍️ Literatura:',
-    'literatura-desc': 'Poesia · Miniconto · Conto · Ensaio crítico · Pesquisa e criação literária ou acadêmica',
-    'literatura-max': '(Uma obra por participante)',
-    'info-obligatoria-literatura': '📄 Requisitos:',
-    'item-titulo-obra-lit': '(espanhol, inglês, português)',
-    'item-resumen-obra-lit': '(mín. 70 – máx. 100 palavras, em espanhol, inglês e português)',
-    'item-palabras-clave-lit': '3-5 (em espanhol, inglês e português)',
+    'literatura-titulo': 'Literatura',
+    'literatura-desc': 'Poesia · Miniconto · Conto · Ensaio · Pesquisa',
+    'literatura-max': '1 obra por participante',
+    'info-obligatoria-literatura': 'Requisitos:',
+    'item-titulo-obra-lit': '(es, en, pt)',
+    'item-resumen-obra-lit': '(70-100 palavras, 3 idiomas)',
+    'item-palabras-clave-lit': '3-5 (3 idiomas)',
     'item-archivo-texto': 'Arquivo',
-    'item-papel': 'Formato carta, margens 2,54 cm, espaçamento duplo, Times New Roman 12',
-    'item-extension': 'Extensão: 600 a 1500 palavras (1 a 3 páginas)',
-    'item-normas-apa': 'Normas APA 7ª ed. (se houver referências)',
-    'titulo-cronograma': '📅 Cronograma 2026',
+    'item-papel': 'Formato carta, margens 2,54 cm, espaço duplo, Times 12',
+    'item-extension': 'Extensão: 600-1500 palavras',
+    'item-normas-apa': 'Normas APA 7ª ed.',
+    'titulo-cronograma': 'Cronograma 2026',
     'columna-fase': 'Fase',
     'columna-fecha': 'Data',
-    'fase-recepcion': 'Recepção de obras',
-    'fase-seleccion': 'Seleção e curadoria',
-    'fase-publicacion': 'Publicação digital',
-    'titulo-postulacion': '📩 Como se inscrever?',
-    'descripcion-postulacion': 'Preencha o formulário online e anexe suas obras (conta Google necessária para uploads).',
-    'recomendacion-politicas': '📘 Antes de enviar sua obra, leia as <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Políticas Editoriais</a>. Ao enviar o formulário, você aceita seus termos.',
-    'texto-formulario-inscripcion': '📝 Formulário de inscrição (jovens artistas)',
-    'titulo-derechos': 'Autorização de Participação, Declaração de Autoria e Publicação de Obra (Menores de idade)',
+    'fase-recepcion': 'Recepção',
+    'fase-seleccion': 'Seleção',
+    'fase-publicacion': 'Publicação',
+    'titulo-postulacion': 'Inscrever-se',
+    'descripcion-postulacion': 'Formulário online (conta Google necessária).',
+    'recomendacion-politicas': 'Antes de enviar, leia as <a href="https://pol-ticaseditoriales.netlify.app/" target="_blank">Políticas Editoriais</a>.',
+    'texto-formulario-inscripcion': '📝 Formulário',
+    'titulo-derechos': 'Autorização',
     'derecho1': 'Obras originais e inéditas',
-    'derecho2': 'O autor conserva todos os seus direitos',
-    'derecho3': 'Você autoriza a publicação digital com créditos',
-    'derecho4': 'É obrigatório ler, assinar e enviar o documento de autorização (PDF)',
-    'texto-documento-derechos': 'Documento de autorização (download obrigatório para menores de idade):',
-    'texto-descargar-derechos': '🔗 Baixar documento',
-    'texto-boton-volver': '🏠 Voltar à página inicial'
+    'derecho2': 'O autor conserva os direitos',
+    'derecho3': 'Autorização de publicação digital',
+    'derecho4': 'Documento de autorização assinado (PDF) obrigatório',
+    'texto-documento-derechos': 'Documento de autorização (menores):',
+    'texto-descargar-derechos': '📄 Baixar',
+    'texto-boton-volver': ' Voltar'
   }
 };
 
 function translateContent(lang) {
   const data = translations[lang];
   if (!data) return;
-  
-  // Actualizar título de la página
-  document.title = data.title || ('Convocatoria Jóvenes Creadores de Latinoamérica · Edición 2');
-  
-  // Recorrer todas las claves del objeto de traducción
   for (const [id, text] of Object.entries(data)) {
     const element = document.getElementById(id);
     if (element) {
-      // Si el texto contiene HTML o es un párrafo que debe mantener formato, usar innerHTML
-      if (typeof text === 'string' && (text.includes('<') || 
-          id.includes('descripcion') || id.includes('aviso') || 
-          id.includes('recomendacion') || id.includes('normas'))) {
+      if (typeof text === 'string' && (text.includes('<') || id.includes('descripcion') || id.includes('aviso') || id.includes('recomendacion'))) {
         element.innerHTML = text;
       } else {
         element.textContent = text;
       }
     }
   }
-  
-  // Actualizar clases activas en banderas
-  document.querySelectorAll('#flags button').forEach(btn => {
-    btn.classList.remove('active');
-  });
+  // Asegurar que el enlace ISSN mantenga su atributo href
+  const issnLink = document.getElementById('issn-valor');
+  if (issnLink && issnLink.tagName === 'A') {
+    issnLink.setAttribute('href', 'https://portal.issn.org/resource/ISSN/3115-0357');
+    issnLink.setAttribute('target', '_blank');
+  }
+  document.querySelectorAll('#flags button').forEach(btn => btn.classList.remove('active'));
   document.getElementById(`flag-${lang}`).classList.add('active');
-  
-  // Guardar preferencia de idioma
   localStorage.setItem('preferredLanguage', lang);
 }
 
-// Funciones para cada idioma
 function translateToSpanish() { translateContent('es'); }
 function translateToEnglish() { translateContent('en'); }
 function translateToFrench() { translateContent('fr'); }
 function translateToPortuguese() { translateContent('pt'); }
 
-// Cargar idioma guardado al iniciar la página
 document.addEventListener('DOMContentLoaded', () => {
   const savedLang = localStorage.getItem('preferredLanguage') || 'es';
   translateContent(savedLang);
 });
 </script>
-
 </body>
 </html>
